@@ -23,6 +23,7 @@ request.interceptors.response.use(
         localStorage.removeItem('token')
         localStorage.removeItem('userId')
         localStorage.removeItem('nickname')
+        localStorage.removeItem('role')
         window.location.href = '/login'
       }
       return Promise.reject(new Error(res.message))
@@ -32,6 +33,7 @@ request.interceptors.response.use(
   error => {
     if (error.response && error.response.status === 401) {
       localStorage.removeItem('token')
+      localStorage.removeItem('role')
       window.location.href = '/login'
     }
     ElMessage.error(error.message || '网络错误')

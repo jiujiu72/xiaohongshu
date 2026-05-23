@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <el-container>
-      <el-header class="app-header">
+      <el-header class="app-header" v-if="showHeader">
         <div class="header-content">
           <h1 class="logo" @click="$router.push('/')">小红书</h1>
           <div class="header-right">
@@ -17,7 +17,7 @@
           </div>
         </div>
       </el-header>
-      <el-main>
+      <el-main :class="{ 'no-header': !showHeader }">
         <router-view />
       </el-main>
     </el-container>
@@ -26,17 +26,22 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 
 const router = useRouter()
+const route = useRoute()
 
 const isLoggedIn = computed(() => !!localStorage.getItem('token'))
 const nickname = computed(() => localStorage.getItem('nickname') || '')
+
+const authPages = ['Login', 'Register', 'AdminLogin', 'AdminDashboard']
+const showHeader = computed(() => !authPages.includes(route.name))
 
 function logout() {
   localStorage.removeItem('token')
   localStorage.removeItem('userId')
   localStorage.removeItem('nickname')
+  localStorage.removeItem('role')
   router.push('/login')
 }
 </script>
@@ -91,5 +96,10 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
+}
+
+.el-main.no-header {
+  max-width: 100%;
+  padding: 0;
 }
 </style>

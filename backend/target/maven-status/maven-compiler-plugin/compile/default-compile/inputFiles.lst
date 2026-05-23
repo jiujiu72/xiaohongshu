@@ -16,11 +16,14 @@ D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\entity\Like.j
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\config\JwtUtil.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\config\CorsConfig.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\XiaohongshuApplication.java
+D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\controller\AdminController.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\dto\CommentRequest.java
+D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\config\DataInitializer.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\dto\NoteRequest.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\mapper\CommentMapper.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\service\UserService.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\entity\Note.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\config\SecurityConfig.java
+D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\interceptor\AdminInterceptor.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\mapper\LikeMapper.java
 D:\myweb\coconut\xiaohongshu\backend\src\main\java\com\xiaohongshu\controller\UserController.java

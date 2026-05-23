@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 @Component
-public class JwtInterceptor implements HandlerInterceptor {
+public class AdminInterceptor implements HandlerInterceptor {
 
     @Autowired
     private JwtUtil jwtUtil;
@@ -35,8 +35,15 @@ public class JwtInterceptor implements HandlerInterceptor {
             return false;
         }
 
-        Long userId = jwtUtil.getUserIdFromToken(token);
         String role = jwtUtil.getRoleFromToken(token);
+        if (!"admin".equals(role)) {
+            response.setStatus(403);
+            response.setContentType("application/json;charset=UTF-8");
+            response.getWriter().write("{\"code\":403,\"message\":\"无管理员权限\"}");
+            return false;
+        }
+
+        Long userId = jwtUtil.getUserIdFromToken(token);
         request.setAttribute("userId", userId);
         request.setAttribute("role", role);
         return true;
